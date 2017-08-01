@@ -7,7 +7,7 @@
 # openssh ca-certificates openssl vim jdk glibc sonarcube
 ###
 ## To build:
-# docker build -t sonar-cube:1.0.0 .
+# docker build -t sonarqube-server:latest .
 ## To run, with login:
 # docker run -it -p 9000:9000 --name sonar sonar-cube:1.0.0
 # To run as a service
@@ -143,6 +143,9 @@ RUN wget --output-document=sonar.zip https://sonarsource.bintray.com/Distributio
 
 
 RUN unzip sonar.zip
+## change the context
+## https://docs.sonarqube.org/display/SONAR/Installing+the+Server#InstallingtheServer-installingWebServerInstallingtheWebServer
+COPY sonar.properties /apps/sonarqube-6.4/conf
 
 RUN chmod u+x /apps/sonarqube-6.4/bin/linux-x86-64/sonar.sh
 ENTRYPOINT ["/apps/sonarqube-6.4/bin/linux-x86-64/sonar.sh"]
