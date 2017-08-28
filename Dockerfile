@@ -7,7 +7,7 @@
 # openssh ca-certificates openssl vim jdk glibc sonarcube
 ###
 ## To build:
-# docker build -t sonar-cube:1.0.0 .
+# docker build -t sonar-qube:postgres .
 ## To run, with login:
 # docker run -it -p 9000:9000 --name sonar sonar-cube:1.0.1
 # To run as a service
@@ -17,9 +17,9 @@
 ## To login when running
 # docker exec -i -t (containerId) bash # obtain the containerId from docker ps
 ## to tag for pushing to aws, e.g.
-# docker tag sonar-cube:1.0.0 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonar-cube:1.0.0
+# docker tag sonar-qube:postgres mononoke/sonar-qube:postgres
 ## to push to aws
-# docker push 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonar-cube:1.0.0
+# docker push mononoke/sonar-qube:postgres
 ## to pull from aws
 # docker pull 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonar-cube:1.0.0
 ################################################
