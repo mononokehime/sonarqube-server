@@ -17,15 +17,15 @@ pipeline {
             }
         stage ('Docker Publish') {
             steps {
-               // sh 'aws ecr get-login --no-include-email --region ap-northeast-1 | sh'
+                sh 'aws ecr get-login --no-include-email --region ap-northeast-1 | sh'
                 // ${env.BUILD_ID}
-              //  sh 'docker tag sonarqube-server 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonarqube-server:latest'
-             //   sh 'docker push 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonarqube-server:latest'
+                sh 'docker tag sonarqube-server 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonarqube-server:latest'
+                sh 'docker push 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonarqube-server:latest'
 
 
               //  script {
               //      docker.withRegistry('https://667203200330.dkr.ecr.ap-northeast-1.amazonaws.com', 'ecr-credentials') {
-              //      docker.image('sonarqube-server').push('latest')
+              //      docker.image('jenkins-swarm-agent-docker').push('latest')
               //      }
               //  }
             }

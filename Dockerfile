@@ -17,9 +17,9 @@
 ## To login when running
 # docker exec -i -t (containerId) bash # obtain the containerId from docker ps
 ## to tag for pushing to aws, e.g.
-# docker tag sonar-qube mononoke/sonar-qube:1.1
+# docker tag sonar-qube mononoke/sonar-qube:1.2
 ## to push to aws
-# docker push mononoke/sonar-qube:1.1
+# docker push mononoke/sonar-qube:1.2
 ## to pull from aws
 # docker pull 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonar-cube:1.0.0
 ################################################
@@ -153,6 +153,9 @@ COPY sonar.properties /apps/sonarqube-6.4/conf
 COPY sonar-gitlab-plugin-2.1.0-rc1.jar /apps/sonarqube-6.4/extensions/plugins
 ### Allows for single sign on with gitlab credentials
 ##COPY sonar-gitlab-plugin-2.1.0-rc1.jar /apps/sonarqube-6.4/extensions/plugins
+
+### Copy the OWASP dependency check
+COPY sonar-dependency-check-plugin-1.0.3.jar /apps/sonarqube-6.4/extensions/plugins
 
 ENTRYPOINT ["/apps/sonarqube-6.4/bin/linux-x86-64/sonar.sh"]
 CMD ["console"]
