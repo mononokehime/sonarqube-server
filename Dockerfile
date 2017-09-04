@@ -7,21 +7,21 @@
 # openssh ca-certificates openssl vim jdk glibc sonarcube
 ###
 ## To build:
-# docker build -t sonar-qube .
+# docker build -t sonarqube-server .
 ## To run, with login:
-# docker run -it -p 9000:9000 --name sonar sonar-cube:1.0.1
+# docker run -it -p 9000:9000 --name sonar sonarqube-server:1.0
 # To run as a service
-# docker service create --network ci-network --name sonarqube -p 9000:9000 sonar-cube:1.0.0
+# docker service create --network ci-network --name sonarqube -p 9000:9000 sonarqube-server:1.0
 ## To run in background:
-# docker run -d --name sonar-cube sonar-cube:1.0.0
+# docker run -d --name sonar-cube sonar-cube:1.0
 ## To login when running
 # docker exec -i -t (containerId) bash # obtain the containerId from docker ps
 ## to tag for pushing to aws, e.g.
-# docker tag sonar-qube mononoke/sonar-qube:1.2
+# docker tag sonarqube-server mononoke/sonarqube-server:1.0
 ## to push to aws
-# docker push mononoke/sonar-qube:1.2
+# docker push mononoke/sonarqube-server:1.0
 ## to pull from aws
-# docker pull 667203200330.dkr.ecr.ap-northeast-1.amazonaws.com/sonar-cube:1.0.0
+# docker pull mononoke/sonarqube-server:1.0
 ################################################
 # Some useful Docker commands
 # To list running docker containers: "docker ps"
